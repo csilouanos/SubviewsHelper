@@ -41,12 +41,16 @@ open class NibView: UIView {
     }
     
     private func initialize() {
-        let nib = UINib(nibName: String(describing: type(of: self)), bundle: prefferedBundle())
+        let nib = UINib(nibName: String(describing: prefferedXibFile()), bundle: prefferedBundle())
         let view = nib.instantiate(withOwner: self, options: nil).first as? UIView ?? UIView()
         contentView = view
     }
     
     open func prefferedBundle() -> Bundle? {
         return Bundle(for: type(of: self))
+    }
+    
+    open func prefferedXibFile() -> NibView.Type {
+        return type(of: self)
     }
 }
