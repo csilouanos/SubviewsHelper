@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NibView: UIView {
+open class NibView: UIView {
     
     var contentView: UIView! {
         willSet {
@@ -30,7 +30,7 @@ class NibView: UIView {
         configure()
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
         initialize()
         configure()
